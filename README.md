@@ -1,6 +1,6 @@
 # Multi-Tenant SaaS Platform
 
-A production-grade **multi-tenant SaaS backend** built with Spring Boot 3, demonstrating schema-based tenant isolation — the architecture used by companies like Salesforce, Shopify, and HubSpot.
+A **multi-tenant SaaS backend** built with Spring Boot 3, demonstrating schema-based tenant isolation — the architecture used by companies like Salesforce, Shopify, and HubSpot.
 
 ## What is Multi-Tenancy?
 
@@ -51,10 +51,18 @@ TenantAwareEntity (auto-stamps tenantId on persist)
 ## Running
 
 ```bash
-./mvnw spring-boot:run
+mvn spring-boot:run
 # or
 docker-compose up --build
 ```
+
+## Tests
+
+```bash
+mvn test
+```
+
+Includes a test proving tenant-scoped queries (no cross-tenant leakage) and `ThreadLocal` context lifecycle.
 
 ## API Usage
 
